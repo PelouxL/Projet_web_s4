@@ -37,10 +37,13 @@ CREATE TABLE Preferences (
     FOREIGN KEY (utilisateur_id) REFERENCES Utilisateurs(id)
 );
 
-CREATE TABLE Preferences (
+
+CREATE TABLE Publications (
     id INTEGER PRIMARY KEY,
     utilisateur_id INTEGER,
+    contenu TEXT,
     genre TEXT,
+    date_publication DATETIME,
     FOREIGN KEY (utilisateur_id) REFERENCES Utilisateurs(id)
 );
 
