@@ -8,7 +8,7 @@ CREATE TABLE membres(
 
 
 CREATE TABLE Utilisateurs (
-    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     nom TEXT,
     email TEXT UNIQUE,
     date_inscription DATE
