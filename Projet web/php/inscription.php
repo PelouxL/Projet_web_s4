@@ -1,8 +1,8 @@
 <?php
 function afficheFormulaire($p){ ?>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <form method="post">
         <label>Pseudo <input type="text" name="username" value="<?php echo $p; ?>" required="required"></label><br>
-        <label>Adresse email <input type="text" name="email" required="required" value="<?php echo $p ?>"</label><br>
+        <label>Adresse email <input type="email" name="email" required="required" value="<?php echo $p ?>"</label><br>
         <label>Mot de passe :<input type="password" name="mdp" required="required"></label><br>
         <button type="submit" name="submit_ins">Submit</button>
     </form>
@@ -13,18 +13,29 @@ if(isset($_POST['submit_ins'])){
     $nom = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['mdp'];
-
-    
-    include('../connex.inc.php');
-    $pdo = connexion('../database.sqlite');
+  
+    include("../connex.inc.php");
+    $pdo = connexion('../bdd/database.sqlite');
     try{
-        $sql = "INSERT INTO Utilisateurs (id, nom, mdp, email, date_inscription ) VALUES (NULL, :name, :mdp , :email, NULL)";
+        $sql = "INSERT INTO Utilisateurs (id, nom, email, mdp, date_inscription ) VALUES (NULL, :nom, :email, :mdp , NULL)";
         $stmt= $pdo->prepare($sql);
         $stmt->bindparam(':nom',$nom);
         $stmt->bindparam(':email',$email);
-        $stmt->bindparam(':password',$password);
-        
-        $stmt->execute($data);
+        $stmt->bindparam(':mdp',$password);
+        $stmt->execute();
+
+        $recup = $pdo->prepare("SELECT * from Utilisateurs WHERE nom LIKE :nom");
+        $recup->bindparam(':nom', $nom);
+        $recup->execute();
+        if($recup->rowCount() > 0){
+            $_SESSION['pseudo'] = $nom;
+            $_SESSION['statut'] = 1;
+            $_SESSION['email'] = $email;
+            $_SESSION['mdp'] = $password; 
+            $_SESSION['id'] = $recupUser->fetch()['id']; 
+            
+        }
+        echo $_SESSION['id'];
     } catch(PDOException $e){
         echo '<p>Problème PDO </p>';
         echo $e->getMessage();
@@ -33,9 +44,6 @@ if(isset($_POST['submit_ins'])){
     $pdo = null;
 }
 
-session_start();
-$_SESSION['pseudo'] = "***";
-$_SESSION['statut'] = -1;
 ?>
 
 <!doctype html>

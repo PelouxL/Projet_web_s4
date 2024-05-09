@@ -1,3 +1,5 @@
+DROP TABLE Utilisateurs ;
+
 /*
 CREATE TABLE membres(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -7,14 +9,15 @@ CREATE TABLE membres(
 ); */
 
 
-CREATE TABLE Utilisateurs (
+ CREATE TABLE IF NOT EXISTS Utilisateurs  (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nom TEXT,
     email TEXT UNIQUE,
+    mdp TEXT,
     date_inscription DATE
 );
 
-CREATE TABLE Amis (
+CREATE TABLE IF NOT EXISTS Amis  (
     id INTEGER PRIMARY KEY,
     utilisateur_id INTEGER,
     ami_id INTEGER,
@@ -22,7 +25,7 @@ CREATE TABLE Amis (
     FOREIGN KEY (ami_id) REFERENCES Utilisateurs(id)
 );
 
-CREATE TABLE Messages (
+CREATE TABLE IF NOT EXISTS Messages   (
     id INTEGER PRIMARY KEY,
     utilisateur_id INTEGER,
     contenu TEXT,
@@ -30,7 +33,7 @@ CREATE TABLE Messages (
     FOREIGN KEY (utilisateur_id) REFERENCES Utilisateurs(id)
 );
 
-CREATE TABLE Preferences (
+ CREATE TABLE IF NOT EXISTS Preferences  (
     id INTEGER PRIMARY KEY,
     utilisateur_id INTEGER,
     genre TEXT,
@@ -38,7 +41,7 @@ CREATE TABLE Preferences (
 );
 
 
-CREATE TABLE Publications (
+CREATE TABLE IF NOT EXISTS Publications   (
     id INTEGER PRIMARY KEY,
     utilisateur_id INTEGER,
     contenu TEXT,
