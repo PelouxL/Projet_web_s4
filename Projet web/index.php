@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['username'] = "";
+$_SESSION['username'] = "bib";
 $_SESSION['statut'] = 1;
 
 ?>

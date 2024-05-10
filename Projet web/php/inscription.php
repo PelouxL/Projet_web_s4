@@ -2,7 +2,7 @@
 function afficheFormulaire($p){ ?>
     <form method="post">
         <label>Pseudo <input type="text" name="username" value="<?php echo $p; ?>" required="required"></label><br>
-        <label>Adresse email <input type="email" name="email" required="required" value="<?php echo $p ?>"</label><br>
+        <label>Adresse email <input type="email" name="email" required="required" ></label><br>
         <label>Mot de passe :<input type="password" name="mdp" required="required"></label><br>
         <button type="submit" name="submit_ins">Submit</button>
     </form>
@@ -17,26 +17,34 @@ if(isset($_POST['submit_ins'])){
     include("../connex.inc.php");
     $pdo = connexion('../bdd/database.sqlite');
     try{
-        $sql = "INSERT INTO Utilisateurs (id, nom, email, mdp, date_inscription ) VALUES (NULL, :nom, :email, :mdp , NULL)";
-        $stmt= $pdo->prepare($sql);
-        $stmt->bindparam(':nom',$nom);
-        $stmt->bindparam(':email',$email);
-        $stmt->bindparam(':mdp',$password);
-        $stmt->execute();
+        $verif = $pdo->prepare("SELECT * FROM Utilisateurs WHERE email = :email");
+        $verif->bindparam(':email',$email);
+        $verif->execute();
+       
+        // Vérifier si l'email existe déjà
+        $row = $verif->fetch();
+        if ( $row ) {
+            echo "L'email existe déjà.";
+        } else {
+            $verif->closeCursor();
 
-        $recup = $pdo->prepare("SELECT * from Utilisateurs WHERE nom LIKE :nom");
-        $recup->bindparam(':nom', $nom);
-        $recup->execute();
-        if($recup->rowCount() > 0){
-            $_SESSION['pseudo'] = $nom;
-            $_SESSION['statut'] = 1;
+            $sql = "INSERT INTO Utilisateurs (id, nom, email, mdp, date_inscription ) VALUES (NULL, :nom, :email, :mdp , NULL)";
+            $stmt= $pdo->prepare($sql);
+            $stmt->bindparam(':nom',$nom);
+            $stmt->bindparam(':email',$email);
+            $stmt->bindparam(':mdp',$password);
+            $stmt->execute();
+
+            session_start();
+            $_SESSION['statut'] = 0;
+            $_SESSION['username'] = $nom;
             $_SESSION['email'] = $email;
-            $_SESSION['mdp'] = $password; 
-            $_SESSION['id'] = $recupUser->fetch()['id']; 
-            
+
+            header('location: http://localhost:8000');
+            exit;
+
         }
-        echo $_SESSION['id'];
-    } catch(PDOException $e){
+    }catch(PDOException $e){
         echo '<p>Problème PDO </p>';
         echo $e->getMessage();
     }
@@ -53,17 +61,8 @@ if(isset($_POST['submit_ins'])){
         <title>Document</title>
     </head>
     <body>
-        <?php  
-        if($_SESSION['statut'] === 1 || $_SESSION['statut'] === 0){
-            header('location: http://localhost:8000');       
-        }else{
-            if(empty($_POST)){
-                $p = NULL;
-            }else{
-                $p = $_POST['username'];
-            }
-            afficheFormulaire($p);
-        }
-        ?>
+        <?php
+        afficheFormulaire($p);
+         ?>
     </body>
 </html>
