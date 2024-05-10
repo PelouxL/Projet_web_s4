@@ -3,6 +3,8 @@ session_start();
 $_SESSION['username'] = "bib";
 $_SESSION['statut'] = 1;
 
+echo $_COOKIE['email'];
+
 ?>
 
 <html>

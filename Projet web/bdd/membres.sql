@@ -1,4 +1,4 @@
-DROP TABLE Utilisateurs ;
+DROP TABLE IF EXISTS Utilisateurs ;
 
 /*
 CREATE TABLE membres(
@@ -14,6 +14,7 @@ CREATE TABLE membres(
     nom TEXT,
     email TEXT UNIQUE,
     mdp TEXT,
+    token TEXT,
     date_inscription DATE
 );
 

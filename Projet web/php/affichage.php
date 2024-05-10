@@ -11,7 +11,7 @@ function aff(){
     echo '<p>'.count($users).' étudiant⋅es correspondent à votre requête :</p>';
     echo '<ul>';
     foreach($users as $user) {
-        echo '<li>'.$user['id'].' '.$user['nom'].' '.$user['email'].'</li>';
+        echo '<li>'.$user['id'].' '.$user['nom'].' '.$user['email'].' '.$user['mdp'].'</li>';
     }     
     echo '</ul>';
     $req->closeCursor();

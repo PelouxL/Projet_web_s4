@@ -28,7 +28,7 @@ if(isset($_POST['submit_ins'])){
         } else {
             $verif->closeCursor();
 
-            $sql = "INSERT INTO Utilisateurs (id, nom, email, mdp, date_inscription ) VALUES (NULL, :nom, :email, :mdp , NULL)";
+            $sql = "INSERT INTO Utilisateurs (id, nom, email, mdp, token, date_inscription ) VALUES (NULL, :nom, :email, :mdp , '',  NULL)";
             $stmt= $pdo->prepare($sql);
             $stmt->bindparam(':nom',$nom);
             $stmt->bindparam(':email',$email);
