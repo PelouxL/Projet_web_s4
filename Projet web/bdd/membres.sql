@@ -14,6 +14,7 @@ CREATE TABLE membres(
     nom TEXT,
     email TEXT UNIQUE,
     mdp TEXT,
+    age INT,
     token TEXT,
     date_inscription DATE
 );

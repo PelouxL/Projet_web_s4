@@ -3,6 +3,7 @@ function afficheFormulaire($p){ ?>
     <form method="post">
         <label>Pseudo <input type="text" name="username" value="<?php echo $p; ?>" required="required"></label><br>
         <label>Adresse email <input type="email" name="email" required="required" ></label><br>
+        <label>Age : <input type="number" name='age' required="required" min="15" max="130"></label><br>
         <label>Mot de passe :<input type="password" name="mdp" required="required"></label><br>
         <button type="submit" name="submit_ins">Submit</button>
     </form>
@@ -13,6 +14,7 @@ if(isset($_POST['submit_ins'])){
     $nom = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['mdp'];
+    $age = $_POST['age'];
   
     include("../connex.inc.php");
     $pdo = connexion('../bdd/database.sqlite');
@@ -28,19 +30,20 @@ if(isset($_POST['submit_ins'])){
         } else {
             $verif->closeCursor();
 
-            $sql = "INSERT INTO Utilisateurs (id, nom, email, mdp, token, date_inscription ) VALUES (NULL, :nom, :email, :mdp , '',  NULL)";
+            $sql = "INSERT INTO Utilisateurs (id, nom, email, mdp, age, token, date_inscription ) VALUES (NULL, :nom, :email, :mdp , :age, '',  NULL)";
             $stmt= $pdo->prepare($sql);
             $stmt->bindparam(':nom',$nom);
             $stmt->bindparam(':email',$email);
             $stmt->bindparam(':mdp',$password);
+            $stmt->bindparam(':age',$age);
+
             $stmt->execute();
 
             session_start();
             $_SESSION['statut'] = 0;
             $_SESSION['username'] = $nom;
             $_SESSION['email'] = $email;
-
-            header('location: http://localhost:8000');
+            header('location: ../index.php');
             exit;
 
         }

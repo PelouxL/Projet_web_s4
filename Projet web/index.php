@@ -1,9 +1,6 @@
 <?php
 session_start();
-$_SESSION['username'] = "bib";
-$_SESSION['statut'] = 1;
-
-echo $_COOKIE['email'];
+echo $_SESSION['username'];
 
 ?>
 
@@ -17,10 +14,8 @@ echo $_COOKIE['email'];
  <body>
      <?php
      if(empty($_SESSION['username'])){
-         header('location: http://localhost:8000/php/connexion.php');
+         header('location: ./php/connexion.php');
      }
-     
-
      ?>
 
 
