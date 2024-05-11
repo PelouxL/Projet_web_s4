@@ -22,13 +22,15 @@ echo $_COOKIE['email'];
      
 
      ?>
+
+
     <div class="Sidebar"> 
       <header><img src="../images/oljl.png" alt="image du Logo">Logo</header>
       <ul>
         <li>Accueuille </li>
         <li>Abonnement </li>
         <li>Notification</li>
-        <li>Profile </li>
+        <li><a href="php/profile.php">Profile</a></li>
         <li>Poste
         <li>Paramètres </li>
       </ul>
@@ -40,6 +42,9 @@ echo $_COOKIE['email'];
     <button type="button">File vidéo</button>
   </div>
   <div class="Pourtoi">
-    
+  <form action="php/recherche.php" method="get">
+        <label for="pseudo">Pseudo:</label>
+        <input type="text" id="pseudo" name="pseudo">
+  </form>
 
   </body> 
