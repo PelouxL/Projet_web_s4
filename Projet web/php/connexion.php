@@ -1,4 +1,6 @@
-
+<?php 
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,12 +32,13 @@
                 if($email != "" && $password != ""){
                     $token = bin2hex(random_bytes(32));
 
-                    $req = $pdo->prepare("SELECT * FROM Utilisateurs WHERE email = :email AND mdp = :mdp");
+                    $req = $pdo->prepare("SELECT * FROM Utilisateurs WHERE email = :email");
                     $req->bindparam(':email', $email);
-                    $req->bindparam(':mdp', $password);
                     $req->execute();
                     $exists = $req->fetch();
-                    if($exists){
+
+                    if($exists && (password_verify($password, $exists['mdp']))){
+                        $nom = $exists['nom'];
                         // compte existant
                         $tok = $pdo->prepare("UPDATE Utilisateurs SET token = :token WHERE email = :email AND mdp = :mdp");
                         $tok->bindparam(':token', $token);
@@ -44,8 +47,13 @@
                         $tok->execute();
                         setcookie('token', $token, time() + 3600);
                         setcookie('email', $email, time() + 3600);
+
+                        
+                        $_SESSION['statut'] = 0;
+                        $_SESSION['email'] = $email;
+                        $_SESSION['username'] = $nom;
                         header('location: ../index.php');
-                        exit();    
+                        exit;    
                         
                     }else{
                         $error_msg= "Email ou mdp inccorecte";

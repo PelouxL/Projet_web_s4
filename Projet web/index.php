@@ -1,7 +1,6 @@
 <?php
 session_start();
 echo $_SESSION['username'];
-
 ?>
 
 <html>
@@ -13,8 +12,8 @@ echo $_SESSION['username'];
  </head>
  <body>
      <?php
-     if(empty($_SESSION['username'])){
-         header('location: ./php/connexion.php');
+     if( (empty($_SESSION['email']) &&  (empty($_SESSION['username'])) )){
+      header('location: ./php/connexion.php');
      }
      ?>
 
