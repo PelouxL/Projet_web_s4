@@ -33,7 +33,7 @@ if(isset($_POST['submit_ins'])){
             $dateActuelle = date("Y-m-d");
 
             $password_crp =password_hash($password, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO Utilisateurs (id, nom, email, mdp, age, token, date_inscription ) VALUES (NULL, :nom, :email, :mdp , :age, '', :date_ins)";
+            $sql = "INSERT INTO Utilisateurs (id, nom, email, mdp, age, token, pp, date_inscription ) VALUES (NULL, :nom, :email, :mdp , :age, '', '', :date_ins)";
             $stmt= $pdo->prepare($sql);
             $stmt->bindparam(':nom',$nom);
             $stmt->bindparam(':email',$email);

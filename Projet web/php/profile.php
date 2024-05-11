@@ -7,6 +7,11 @@
  </head>
  <body>
    <div class="container">
+      <h2>Ajouter une photo de profil</h2>
+         <form action="upload.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/jpeg,image/png,image/webp">
+            <input type="submit" name="submit_img" value="Ajouter">
+    </form>
       <div class="bar"  >
          <ul>
             <li class="active">Vos post</li>
