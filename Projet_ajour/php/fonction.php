@@ -17,6 +17,21 @@
         }
     }
 
+   
+    
+    function image_pp($email, $choix, $pdo){
+        $stmt = $pdo->prepare("SELECT * FROM Utilisateurs WHERE email = :email");
+        $stmt->bindparam(':email', $_SESSION['email']);
+        $stmt->execute();
+        $photo = $stmt->fetch();
+        $stmt->closeCursor();
+        if ($photo) {
+            return $photo[$choix];
+        } else {
+            return "";
+        }
+    }
+
     function retNom($id, $pdo) {
 
     $stmt = $pdo->prepare("SELECT nom FROM Utilisateurs WHERE id = :id");

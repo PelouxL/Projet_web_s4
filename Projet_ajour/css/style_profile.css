@@ -3,6 +3,19 @@ body {
 
 }
 
+.panel{
+	width: 65%;
+	height: 30%;
+	border-radius: 5px;
+	position: right;
+	background-color: #482A75;
+	display: none;
+}
+
+div.panel.visible{
+	display:initial;
+}
+
 .container{
 	position: relative;
 	margin:auto;
@@ -27,6 +40,15 @@ body {
 	background-color: #482A75;
 }
 
+.name{
+	background-color: #482A75;
+	border-radius: 25%;
+	width:60px;
+	text-align:center;
+	margin-top:3.5em;
+	font-size:1.5em;
+	color:white;
+}
 .profile{
 	position:absolute;
 	display:flex; 
@@ -55,7 +77,7 @@ body {
 	cursor:pointer;
 	color: #5c5e6e;
 	font-size: 1.1em;
-	padding: 1.5em 1em;
+	padding: 1.5em 7.5em;
 }
 
 .container li:hover, .active {
@@ -68,4 +90,5 @@ body {
 
 .sidebar li{
   list-style:none;
+  margin : 10px;
 }

@@ -1,10 +1,11 @@
 <?php
 session_start();
-echo $_SESSION['username'];
+
 
 ?>
 <html lang="fr">
  <head>
+  <?php echo $_SESSION['username']; ?>
     <meta charset="utf-8"> 
     <Title> Projet</Title>
     <link href="../css/main.css" rel="stylesheet">

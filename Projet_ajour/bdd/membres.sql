@@ -18,6 +18,7 @@ CREATE TABLE membres(
     token TEXT,
     pp TEXT,
     bannier TEXT,
+    bio TEXT,
     date_inscription DATE
 );
 
