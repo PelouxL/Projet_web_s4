@@ -61,4 +61,11 @@
     
     }
 
+    function affiche_ami($amis,$pdo,$link){
+        echo"<div>";
+        foreach ($amis as $ami){
+
+        }
+        echo"</div>";
+    }
 ?>
