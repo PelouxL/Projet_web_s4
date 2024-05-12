@@ -1,0 +1,72 @@
+body {
+	background-color: #A47FDE;
+
+}
+
+.container{
+	position: relative;
+	margin:auto;
+	width: 65%;
+	height: 30%;
+	background-image: url("../images/cursed_cat2.jpg");
+	border-size:cover;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.nonunderline {
+  text-decoration:none;
+  color: #5c5e6e;
+  
+}
+
+.bar{
+	position:absolute;
+	bottom:0;
+	width:100%;
+	height: 65px;
+	background-color: #482A75;
+}
+
+.profile{
+	position:absolute;
+	display:flex; 
+	align_items:center;
+	bottom:20px;
+	left:25px;
+}
+
+.profile img {
+	width:150px;
+	border-radius:50%;
+	border: 3px solid #482A75;
+}
+
+.container ul {
+	position: relative;
+	width: 100%;
+	display:flex;
+	padding-left:200px;
+	height: 100%;
+	margin:0;
+}
+
+.container li{
+	list-style:none;
+	cursor:pointer;
+	color: #5c5e6e;
+	font-size: 1.1em;
+	padding: 1.5em 1em;
+}
+
+.container li:hover, .active {
+	color:white;
+	border-bottom: 3px solid #1488fa;
+}
+
+
+/* ---------------------- side bar --------------------------- */
+
+.sidebar li{
+  list-style:none;
+}
