@@ -48,10 +48,11 @@ session_start();
                         setcookie('token', $token, time() + 3600);
                         setcookie('email', $email, time() + 3600);
 
-                        
+                        include('fonction.php');
                         $_SESSION['statut'] = 0;
                         $_SESSION['email'] = $email;
                         $_SESSION['username'] = $nom;
+                        $_SESSION['id'] = trouveId($email, $pdo);
                         header('location: ../index.php');
                         exit;    
                         

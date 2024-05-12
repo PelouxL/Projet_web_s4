@@ -1,6 +1,12 @@
 <?php
 session_start();
-function afficheFormulaire($p){ ?>
+
+
+
+function afficheFormulaire($p){ 
+    
+    
+    ?>
     <form method="post">
         <label>Pseudo <input type="text" name="username" value="<?php echo $p; ?>" required="required"></label><br>
         <label>Adresse email <input type="email" name="email" required="required" ></label><br>
@@ -8,6 +14,8 @@ function afficheFormulaire($p){ ?>
         <label>Mot de passe :<input type="password" name="mdp" required="required"></label><br>
         <button type="submit" name="submit_ins">Submit</button>
     </form>
+
+
 <?php 
 }
 
@@ -42,10 +50,11 @@ if(isset($_POST['submit_ins'])){
             $stmt->bindparam(':date_ins', $dateActuelle);
             $stmt->execute();
 
-            
+            include('fonction.php');
             $_SESSION['statut'] = 0;
             $_SESSION['username'] = $nom;
             $_SESSION['email'] = $email;
+            $_SESSION['id'] = trouveId($email, $pdo);
             header('location: ../index.php');
             exit;
 
