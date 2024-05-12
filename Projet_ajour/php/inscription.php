@@ -39,15 +39,16 @@ if(isset($_POST['submit_ins'])){
         } else {
             $verif->closeCursor();
             $dateActuelle = date("Y-m-d");
-
+            $banbase = '../images/cursed_cat.jpg';
             $password_crp =password_hash($password, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO Utilisateurs (id, nom, email, mdp, age, token, pp, bannier, date_inscription ) VALUES (NULL, :nom, :email, :mdp , :age, '', '', '', :date_ins)";
+            $sql = "INSERT INTO Utilisateurs (id, nom, email, mdp, age, token, pp, bannier, date_inscription ) VALUES (NULL, :nom, :email, :mdp , :age, '', '', :ban, :date_ins)";
             $stmt= $pdo->prepare($sql);
             $stmt->bindparam(':nom',$nom);
             $stmt->bindparam(':email',$email);
             $stmt->bindparam(':mdp',$password_crp);
             $stmt->bindparam(':age',$age);
             $stmt->bindparam(':date_ins', $dateActuelle);
+            $stmt->bindparam(':ban', $banbase);
             $stmt->execute();
 
             include('fonction.php');

@@ -8,8 +8,7 @@ body {
 	margin:auto;
 	width: 65%;
 	height: 30%;
-	background-image: url("../images/cursed_cat2.jpg");
-	border-size:cover;
+	border-width:cover;
 	border-radius: 5px;
 	overflow: hidden;
 }
@@ -31,7 +30,7 @@ body {
 .profile{
 	position:absolute;
 	display:flex; 
-	align_items:center;
+	align-items:center;
 	bottom:20px;
 	left:25px;
 }

@@ -35,7 +35,10 @@ if(empty($_SESSION['email'])){
         }else{
             echo "Format inccorecte";
         }
+        header('location: ./profile.php');
         // Pour la bannière 
+
+
     }elseif($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_ban']) ){
         if(isset($_FILES["image"]) && $_FILES["image"]["error"] == 0){
             $image = $_FILES["image"];
@@ -45,7 +48,7 @@ if(empty($_SESSION['email'])){
 
             if(move_uploaded_file($image["tmp_name"], $target_file)){
                 try{
-                    $stmt = $pdo->prepare("UPDATE Utilisateurs SET banniere = :ban WHERE email = :email");
+                    $stmt = $pdo->prepare("UPDATE Utilisateurs SET bannier = :ban WHERE email = :email");
                     $stmt->bindparam(':email', $_SESSION['email']);
                     $stmt->bindparam(':ban',$target_file);
                     $stmt->execute();
@@ -59,9 +62,10 @@ if(empty($_SESSION['email'])){
         }else{
             echo "Format inccorecte";
         }
+        header('location: ./profile.php');
     }
+    $stmt->closeCursor();
     $pdo = null; 
-    header('location: ./profile.php');
 ?>
 
 
