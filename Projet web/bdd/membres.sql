@@ -49,7 +49,6 @@ CREATE TABLE IF NOT EXISTS Publications   (
     utilisateur_id INTEGER,
     contenu TEXT,
     genre TEXT,
-    like INTERGER,
     date_publication DATETIME,
     FOREIGN KEY (utilisateur_id) REFERENCES Utilisateurs(id)
 );
