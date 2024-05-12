@@ -17,6 +17,7 @@ CREATE TABLE membres(
     age INT,
     token TEXT,
     pp TEXT,
+    bannier TEXT,
     date_inscription DATE
 );
 
@@ -56,13 +57,17 @@ CREATE TABLE IF NOT EXISTS Publications   (
     FOREIGN KEY (utilisateur_id) REFERENCES Utilisateurs(id)
 );
 
+CREATE TABLE IF NOT EXISTS DemandesAmis (
+    id_demande INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_demandeur INTEGER,
+    id_receveur INTEGER,
+    statut TEXT CHECK(statut IN ('en_attente', 'acceptee', 'rejetee')),
+    date_demande DATETIME,
+    FOREIGN KEY (id_demandeur) REFERENCES Utilisateurs(id),
+    FOREIGN KEY (id_receveur) REFERENCES Utilisateurs(id)
+);
 
 
 
-INSERT INTO Utilisateurs (nom, email, mdp, age, token, pp, date_inscription) VALUES ('Alexandre', 'alex.dupont@example.com', 'mdp123', 35, 'token_123', 'pp_alex.jpg', '2024-05-12');
-INSERT INTO Utilisateurs (nom, email, mdp, age, token, pp, date_inscription) VALUES ('Marie', 'marie.curie@example.com', 'curie2024', 28, 'token_234', 'pp_marie.jpg', '2024-05-12');
-INSERT INTO Utilisateurs (nom, email, mdp, age, token, pp, date_inscription) VALUES ('Jeanne', 'jeanne.m@example.com', 'moreaujeanne', 22, 'token_345', 'pp_jeanne.jpg', '2024-05-12');
-INSERT INTO Utilisateurs (nom, email, mdp, age, token, pp, date_inscription) VALUES ('Émile', 'emile.zola@example.com', 'jaccuse', 42, 'token_456', 'pp_emile.jpg', '2024-05-12');
-INSERT INTO Utilisateurs (nom, email, mdp, age, token, pp, date_inscription) VALUES ('Claude', 'claude.monet@example.com', 'nymphéas', 55, 'token_567', 'pp_claude.jpg', '2024-05-12');
-INSERT INTO Utilisateurs (nom, email, mdp, age, token, pp, date_inscription) VALUES ('Victor', 'victor.hugo@example.com', 'lesmis123', 60, 'token_678', 'pp_victor.jpg', '2024-05-12');
-INSERT INTO Utilisateurs (nom, email, mdp, age, token, pp, date_inscription) VALUES ('Gustave', 'gustave.eiffel@example.com', 'tour1234', 37, 'token_789', 'pp_gustave.jpg', '2024-05-12');
+INSERT INTO Amis (utilisateur_id,ami_id) VALUES (3,1);
+INSERT INTO Amis (utilisateur_id,ami_id) VALUES (1,3);

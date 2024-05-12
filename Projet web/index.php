@@ -2,51 +2,6 @@
 session_start();
 echo $_SESSION['username'];
 
-function retNom($id, $pdo) {
-
-  $stmt = $pdo->prepare("SELECT nom FROM Utilisateurs WHERE id = :id");
-  
- 
-  $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-  
-
-  $stmt->execute();
-  
- 
-  $result = $stmt->fetch(PDO::FETCH_ASSOC);
-  
-  
-  if ($result) {
-      return $result['nom'];
-  } else {
-      return null; 
-  }
-}
-
-
-function affiche_flu($publications,$pdo){
-  foreach ($publications as $publication) {
-    echo "<section>";
-    echo "<h2>Publication ID: " . htmlspecialchars($publication['id']) . "</h2>";
-    if($publication['utilisateur_id'] == $_SESSION['id']){
-      echo"<p><a href='php/profile.php'>" . htmlspecialchars($_SESSION['username']) . "</a></p>";
-    }else{
-      $nom = retNom($publication['utilisateur_id'],$pdo);
-      echo "<form action='profile_user.php' method='post'>";
-      echo "<input type='hidden' name='id' value='" . htmlspecialchars($publication['utilisateur_id']) . "'>";
-      echo "<button type='submit' name='nom' value='" . htmlspecialchars($nom) . "'>" . htmlspecialchars($nom) . "</button><br>";
-      echo "</form>";
-    }
-    echo "<p><strong>Utilisateur ID:</strong> " . htmlspecialchars($publication['utilisateur_id']) . "</p>";
-    echo "<p><strong>Contenu:</strong> " . htmlspecialchars($publication['contenu']) . "</p>";
-    echo "<p><strong>Genre:</strong> " . htmlspecialchars($publication['genre']) . "</p>";
-    echo "<p><strong>Date de publication:</strong> " . htmlspecialchars($publication['date_publication']) . "</p>";
-    echo "</section>";
-  }
-
-}
-
-
 ?>
 <html lang="fr">
  <head>
@@ -102,14 +57,6 @@ function affiche_flu($publications,$pdo){
         $id = $_SESSION['id'];
         $contenu = $_POST['contenu'];
         $genre = $_POST['genre'];
-        echo" voila l'id $id <br>";
-        /*
-        echo "<section>";  
-        echo "<h2>Publication</h2>";
-        echo "<p><a href='php/profile.php'>" . htmlspecialchars($_SESSION['username']) . "</a></p>";
-        echo "<p><strong>Contenu:</strong> " . htmlspecialchars($_POST['contenu']) . "</p>";
-        echo "<p><strong>Genre:</strong> " . htmlspecialchars($_POST['genre']) . "</p>";     
-        echo "</section>";*/
 
 
         $stmt = $pdo->prepare('INSERT INTO Publications (utilisateur_id, contenu, genre, date_publication) VALUES (:utilisateur_id, :contenu, :genre, CURRENT_TIMESTAMP)');
@@ -126,6 +73,7 @@ function affiche_flu($publications,$pdo){
       
 
     }
+      include('php/fonction.php');
       $stmt = $pdo->prepare('SELECT * FROM Publications ORDER BY id DESC');
 
       $stmt->execute();
@@ -134,8 +82,8 @@ function affiche_flu($publications,$pdo){
     
       affiche_flu($publications,$pdo);
 
-    $stmt->closeCursor();
-    $pdo = null;
+      $stmt->closeCursor();
+      $pdo = null;
 ?>
 
 
