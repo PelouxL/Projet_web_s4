@@ -1,4 +1,7 @@
 
+document.getElementById('post').classList.toggle("visible");
+
+
 function aff_edition(id){
     var elts = document.querySelectorAll('.panel');
     var act = document.querySelectorAll('.bar li');
@@ -8,7 +11,7 @@ function aff_edition(id){
             elts[i].classList.remove("visible");       
         }
     }
-    for(i = 0; i <act.length; i++){
+    for(i = 0; i < act.length; i++){
          act[i].classList.remove("active");
     }
 
@@ -19,4 +22,18 @@ function aff_edition(id){
     }
 }
 
+function saut_ligne(name){
+    var element = document.querySelector(name);
+    if(element){
+        var text = element.textContent;
+        var newT = "";
+        for(var i = 0; i < text.length ; i++){
+            newT +=text[i];
+            if( (i+1) %80 === 0){
+                newT +="<br>";
+            }
+        }
+        element.innerHTML = newT;
+    }
+}
 
