@@ -1,30 +1,22 @@
 body {
-	background-color: #A47FDE;
-
-}
-
-.panel{
-	width: 65%;
-	height: 30%;
-	border-radius: 5px;
-	position: right;
-	background-color: #482A75;
-	display: none;
-}
-
-div.panel.visible{
-	display:initial;
+	background-color: #4f3c6e;
+	margin:0;
 }
 
 .container{
 	position: relative;
 	margin:auto;
+	top:0;
 	width: 65%;
-	height: 30%;
-	border-width:cover;
+	height: 80%;
 	border-radius: 5px;
 	overflow: hidden;
+
+	background-size: cover; /* Ajuste la taille de l'image pour couvrir entièrement la div */
+    background-position: center; /* Centre l'image horizontalement et verticalement */
+    background-repeat: no-repeat;
 }
+
 
 .nonunderline {
   text-decoration:none;
@@ -32,20 +24,33 @@ div.panel.visible{
   
 }
 
+.info{
+	position:absolute;
+	top:60%;
+	width:100%;
+	height: 30%;
+	background-color: #482A75;
+}
+
+.info p{
+	position:relative;
+	top:23%;
+	left:7%;
+	word-wrap: break-word;
+	color:white;
+
+}
+
 .bar{
 	position:absolute;
 	bottom:0;
 	width:100%;
-	height: 65px;
+	height: 10%;
 	background-color: #482A75;
 }
 
 .name{
 	background-color: #482A75;
-	border-radius: 25%;
-	width:60px;
-	text-align:center;
-	margin-top:3.5em;
 	font-size:1.5em;
 	color:white;
 }
@@ -53,8 +58,9 @@ div.panel.visible{
 	position:absolute;
 	display:flex; 
 	align-items:center;
-	bottom:20px;
+	bottom:31%;
 	left:25px;
+	z-index:2;
 }
 
 .profile img {
@@ -67,9 +73,8 @@ div.panel.visible{
 	position: relative;
 	width: 100%;
 	display:flex;
-	padding-left:200px;
-	height: 100%;
-	margin:0;
+	height: 0%;
+	bottom: 0;
 }
 
 .container li{
@@ -88,7 +93,134 @@ div.panel.visible{
 
 /* ---------------------- side bar --------------------------- */
 
+.sidebar{
+	top:0;
+	position: fixed;
+	width: 15%;
+	height: 100%;
+	left:0;
+	border-radius: 0px 5px 5px 0px ;
+	color:white;
+	background-color: #482A75;
+}
+
+.logo{
+	display: flex;
+	align-items: center;
+	padding:1rem 1;
+	border-radius: 0px 5px 5px 0px ;
+	font-size: 1.5em;
+	background-color: #6e48ac;
+
+}
+
+.logo img{
+	max-width: 40%;
+	max-height: 40%;
+	padding-left:1em;
+}
+
+
+.sidebar ul a{
+	display:block;
+	width: 100%;
+	line-height: 6.7em;
+	font-size:20px;
+	color:white;
+	box-sizing: border-box;
+	text-decoration: none;
+	border-top:1px solid #A47FDE
+}
+
 .sidebar li{
-  list-style:none;
-  margin : 10px;
+  	list-style:none;
+	text-align: center;
+}
+
+.sidebar ul{
+	margin:0;
+	padding-left: 0;
+}
+
+
+.user{
+	display: flex;
+	align-items: center;
+	border-top:1px solid #A47FDE;
+	padding: 1.5em;
+	background-color: #482A75;
+
+}
+
+.user .pseudo{
+	font-size: 1.5em;
+}
+.user img{
+	max-width: 42%;
+	max-height: 42%;
+	border-radius:50%;
+	margin-left: 0.5em;
+	border: 2px solid #A47FDE;
+	
+}
+
+/* ---------------------- presentation --------------------------- */
+
+.presentation{
+	width:65%;
+	background-color: #482A75;
+	margin-left: 17.5%;
+	text-align: center;
+	border-radius: 5px;
+	margin-top: 2em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	color:white;
+}
+
+.panel{
+	position:relative;
+	width: 65%;
+	height: 30%;
+	
+	background-color: #482A75;
+	display: none;
+}
+
+.panel.visible{
+	display:initial;
+}
+
+/* ---------------------- Amis --------------------------- */
+
+.ListeAmis{
+	position: fixed;
+	width: 15%;
+	height: 100%;
+	top:0;
+	margin-left: 85%;
+	border-radius: 5px 0px 0px 5px;
+	background-color: #482A75;
+}
+
+.ListeAmis .titre{
+	text-align: center;
+	border-bottom: 1px solid #A47FDE ;
+	top:0;
+	color: white;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 1em;
+	border-radius: 5px 0px 0px 5px;
+	background-color: #6e48ac;
+	
+}
+
+.ami{
+	position:relative;
+	text-align: center;
+	padding:0.5em;
+	border-bottom: 1px solid #A47FDE ;
+
+
 }
