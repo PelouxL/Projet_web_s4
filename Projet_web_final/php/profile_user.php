@@ -20,17 +20,22 @@ include("./fonction.php");
       exit;
   }
 
-    $id = isset($_GET['id']) ? $_GET['id'] : (isset($_POST['id']) ? $_POST['id'] : null);
+  $id = isset($_GET['id']) ? $_GET['id'] : (isset($_POST['id']) ? $_POST['id'] : null);
 
-    if ($id) {
-        
 
+    if (isset($id)) {
+    
+        // Préparez et exécutez la requête pour obtenir les informations de l'utilisateur
         $stmt = $pdo->prepare("SELECT * FROM Utilisateurs WHERE id = :id");
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         $utilisateur = $stmt->fetch();
-        
-        if ($utilisateur) { ?>
+    
+        // Vérifiez si un utilisateur a été trouvé
+        if ($utilisateur) {
+            
+            ?>
+            
             <html>
             <html lang="fr">
             <head>
@@ -44,12 +49,10 @@ include("./fonction.php");
                            <img src="../images/logo.png" alt="logo site" class="logo">   
                      </div>
                      <ul>
-                     <li><img src="<?php echo image_pp($_SESSION['email'],'pp',$pdo); ?>" alt="Image de profile side barre"><p><?php echo image_pp($_SESSION['email'],'nom',$pdo); ?></p></li>
+                     <li><img src="<?php echo image_pp($_SESSION['email'],'pp',$pdo); ?>" alt="Image de profile side barre"><p class="title"><?php echo image_pp($_SESSION['email'],'nom',$pdo); ?></p></li>
                            <li><a href="../index.php">Accueil</a></li>
                            <li><a href="profile.php">Profil</a></li>
-                           <li><a href="messages.php">Messages</a></li>
-                           <li><a href="notifications.php">Notifications</a></li>
-                           <li><a href="logout.php">Se déconnecter</a></li>
+                           <li><a href="deconnexion.php">Se déconnecter</a></li>
                      </ul>
                </div>
 
@@ -91,17 +94,14 @@ include("./fonction.php");
                 });
                </script>
         </body>
-            <?php
-            echo "gg";
+        <?php
         } else {
             echo "Aucun utilisateur trouvé avec cet ID.";
         }
     } else {
         echo "Aucun ID fourni.";
-    } 
+    }
+    
 ?>
-
-
-
 </html>
 

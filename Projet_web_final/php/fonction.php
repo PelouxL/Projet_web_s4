@@ -112,6 +112,7 @@
       $stmt->bindParam(':id_amis',$id_amis);
       $stmt->execute();
       $result = $stmt->fetch();
+      echo "<div class='boua'>";
       if ($result) {
           switch ($result['statut']) {
               case 'en_attente':
@@ -133,15 +134,32 @@
                   break;
           }
       } else {
-        echo"$id_amis";
           echo "<form action='profile_user.php' method='post'>";
               echo "<input type='hidden' name='id' value='" . htmlspecialchars($id_amis) . "'>";
               echo "<input type='hidden' name='demande' value='1'>";
               echo "<button type='submit' name='faire_demande'>Faire une demande d'amis</button>";
           echo "</form>";
                 }
+        echo "</div>";
       }
   
+      function est_refuser($id_ami, $pdo) {
+        $stmt = $pdo->prepare("SELECT * FROM DemandesAmis WHERE id_demandeur = :id_ami AND id_receveur = :id_session AND statut = 'en_attente'");
+        $stmt->bindParam(':id_ami', $id_ami);
+        $stmt->bindParam(':id_session', $_SESSION['id']);
+        $stmt->execute();
+        $demande = $stmt->fetch();
+      
+        if ($demande) {
+            $updateStmt = $pdo->prepare("UPDATE DemandesAmis SET statut = 'rejetee' WHERE id_demande = :id_demande");
+            $updateStmt->bindParam(':id_demande', $demande['id_demande'], PDO::PARAM_INT);
+            $updateStmt->execute();
+            echo "La demande d'amis a été rejetée.";
+        } else {
+            echo "Aucune demande d'amis en attente trouvée ou la demande n'existe pas.";
+        }
+      }
+
     function demande_amis($id_ami, $pdo) {
       $id =$_SESSION['id'];
       $stmt = $pdo->prepare("SELECT * FROM DemandesAmis WHERE (id_demandeur = :id_demandeur AND id_receveur = :id_ami) OR (id_demandeur = :id_ami AND id_receveur = :id_demandeur)");
@@ -283,9 +301,9 @@ function affiche_message($utilisateur_id1,$utilisateur_id2,$pdo){
   }
 }
 
-function affiche_publi($pdo){
+function affiche_publi($pdo, $id){
   $stmt = $pdo->prepare('SELECT * FROM Publications WHERE utilisateur_id = :id ORDER BY id DESC');
-  $stmt->bindparam(':id', $_SESSION['id']);
+  $stmt->bindparam(':id', $id);
   $stmt->execute();
   $publications = $stmt->fetchAll();
   echo"<div class='publications'>";
@@ -298,7 +316,7 @@ function affiche_publi($pdo){
       echo "<form action='php/profile_user.php' method='post'>";
         echo "<input type='hidden' name='id' value='" . htmlspecialchars($publication['utilisateur_id']) . "'>"; ?>
         <div class='posteur'>
-          <img src="<?php echo image_pp($_SESSION['email'], 'pp', $pdo); ?>" alt="image pp sur post">
+          <img src="<?php echo image_pp($publication['utilisateur_id'], 'pp', $pdo); ?>" alt="image pp sur post">
           <?php echo "<button type='submit' name='nom' value='" . htmlspecialchars($nom) . "'>" . htmlspecialchars($nom) . "</button><br>";
         echo "</div>";
       echo "</form>";
@@ -321,10 +339,10 @@ function afficher_user($pdo){
 
   echo "<table class='tabl'>";
   echo "<tr>";
-  echo "<th>id</th>"; // Correction ici, utilisez <th> au lieu de <td>
-  echo "<th>nom</th>"; // Correction ici, utilisez <th> au lieu de <td>
-  echo "<th>email</th>"; // Correction ici, utilisez <th> au lieu de <td>
-  echo "<th>choix</th>"; // Correction ici, utilisez <th> au lieu de <td>
+  echo "<th>id</th>"; 
+  echo "<th>nom</th>"; 
+  echo "<th>email</th>"; 
+  echo "<th>choix</th>";  
   echo "</tr>";
   
   foreach($users as $user){
@@ -372,10 +390,12 @@ function recherche_compte($pseudo,$pdo){
 
   if ($existe) {
       foreach ($existe as $utilisateur) {
+        echo "<div class='profile'>";
           echo "<form action='profile_user.php' method='post'>";
           echo "<input type='hidden' name='id' value='" . htmlspecialchars($utilisateur['id']) . "'>";
           echo "<button type='submit' name='nom' value='" . htmlspecialchars($utilisateur['nom']) . "'>" . htmlspecialchars($utilisateur['nom']) . "</button><br>";
           echo "</form>";
+        echo"</div>";
       }
   } else {
       echo "<p>Ce compte n'existe pas.</p>";
@@ -400,9 +420,11 @@ function affiche_pub_genre($genre,$pdo){
           echo "<button type='submit' name='nom' value='" . htmlspecialchars($nom) . "'>" . htmlspecialchars($nom) . "</button><br>";
         echo "</form>";
     }
+    echo "<div class='cont'>";
     echo "<p> " . htmlspecialchars($publication['contenu']) . "</p>";
     echo "<p><strong>Genre:</strong> " . htmlspecialchars($publication['genre']) . "</p>";
-    echo "<p>" . htmlspecialchars($publication['date_publication']) . "</p>";
+    echo"</div>";
+    echo "<p>Publié le :" . htmlspecialchars($publication['date_publication']) . "</p>";
     echo "</section>";
     }
   }else{

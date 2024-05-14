@@ -1,0 +1,233 @@
+body{
+    background-color: #3b1f66;
+}
+
+.profile{
+    margin-top: 3em;;
+    margin-left:310px;
+    margin-right: 1900px;
+    background-color: #7c5daa;
+}
+
+h1{
+    color:white;
+    text-align: center;
+}
+
+.publications {
+    display: flex;
+    flex-direction: column;
+}
+
+.publication {
+    background-color: #512f83;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+	margin-left:310px;
+	margin-right: 310px;
+    color:white;
+}
+
+.publication p {
+    margin-bottom: 10px;
+	
+}
+
+.publication p:last-child {
+    margin-bottom: 0;
+}
+
+.publication a,
+.publication button {
+	background: none;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+	font-size: 1.2em;;
+    border-radius: 5px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.publication a:hover,
+.publication button:hover {
+    background-color: #783b9b; /* Couleur de fond au survol */
+}
+
+.publication form {
+    margin-top: 10px;
+}
+
+.cont{
+	border: 1px solid black;
+	background-color: #643ba1;
+	border-radius:5px;
+	padding: 10px;
+}
+
+/* ---------------------- Amis --------------------------- */
+
+
+.side_gauche {
+    position: fixed; /* Fixe la sidebar à une position */
+    right: 0; /* Alignement à droite */
+    top: 0; /* Alignement en haut */
+    width: 300px; /* Largeur de la sidebar */
+    height: 100%; /* Hauteur de la sidebar */
+    background-color: #5A3198; /* Couleur de fond de la sidebar */
+    overflow-x: hidden; /* Cache le défilement horizontal */
+    overflow-y: auto; /* Permet le défilement vertical si nécessaire */
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5); /* Ombre pour un effet 3D à gauche */
+}
+
+.side_gauche .titre{
+	text-align: center;
+	border-bottom: 1px solid black ;
+}
+
+.side_gauche a {
+    text-align: center;
+    border-bottom: 5px #391e61;
+    display: block; 
+    color: white; 
+    padding: 10px; 
+    text-decoration: none; 
+}
+
+.side_gauche a:hover {
+    background-color: #391e61; 
+}
+
+
+.side_gauche a:first-child {
+    border-bottom: 2px solid #391e61; /* Ajoute une bordure en bas pour séparer des autres liens */
+    padding-bottom: 15px; /* Ajuste l'espacement en bas pour intégrer la bordure */
+}
+
+/* CSS pour les autres liens dans la sidebar */
+.side_gauche a:not(:first-child) {
+    border-top: 1px solid #391e61; 
+    margin-top: 10px; 
+    padding-top: 15px; 
+}
+
+.amis {
+    text-align: center;
+    color: white;
+}
+
+.ami {
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    border-bottom: 2px solid #391e61; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+}
+
+
+/* Style pour les formulaires dans la section 'ami' */
+.ami form {
+    margin: 0; /* Aucun espacement entre les formulaires */
+    flex-basis: 48%; /* Chaque formulaire prend environ la moitié de l'espace disponible */
+}
+
+/* Style pour les boutons dans la section 'ami' */
+.ami button {
+    width: 100%;
+    background-color: #7c5daa; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 10px 15px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: background-color 0.3s; 
+    margin: 5px; 
+    display: inline-block; /
+}
+
+.titre p{
+    color:white;
+}
+
+.ami button:hover {
+    background-color: #391e61; 
+}
+
+
+
+.top {
+    margin-top: 10px;
+    margin-bottom: 10px ;
+    text-align: center; /* Centre le contenu horizontalement */
+}
+
+.logo {
+    display: inline-block; /* Permet à l'image d'être centrée comme du texte */
+    width: 40%;
+}
+
+img{
+    display: inline-block; /* Permet à l'image d'être centrée comme du texte */
+    vertical-align: middle; /* Alignement vertical si nécessaire */
+    max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur de la div */
+    height: auto;
+}
+
+.sidebar {
+
+    position: fixed; 
+    left: 0;
+    top: 0; 
+    width: 300px; 
+    height: 100%; 
+    background-color:#5A3198 ; 
+    overflow-x: hidden; 
+    overflow-y: auto; 
+	box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+}
+
+.sidebar ul {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.sidebar li {
+    text-align: center;
+line-height: 100px;
+}
+
+.sidebar ul li {
+    border-bottom: 1px solid #1a1919; 
+    padding: 20px 0; 
+}
+
+.sidebar ul li:last-child {
+    border-bottom: none;
+}
+
+.sidebar ul li a {
+    display: block; 
+    color: white; 
+    padding: 10px 0; 
+    font-size: 18px; 
+    text-decoration: none; 
+}
+
+.sidebar ul li:hover {
+    background-color: #3b1f66;
+}
+.sidebar img{
+    border-radius: 50%;
+    width:100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+
+
+

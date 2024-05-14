@@ -8,11 +8,12 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>connexion</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="../css/style_co.css" rel="stylesheet" media="all" type="text/css"/>
 </head>
 <body>
-    
+<img src="../images/logo.png">
     <div class="overlay">
+        
         <div class="connexion">
             <?php 
             // connexion a la base de donnée
@@ -57,7 +58,7 @@ session_start();
                         exit;    
                         
                     }else{
-                        $error_msg= "Email ou mdp inccorecte";
+                        $error_msg= "Email ou mot de passe inccorecte";
                     }
                     $req->closeCursor();
                 }
@@ -65,6 +66,7 @@ session_start();
 
 
             ?>
+            
             <form action="connexion.php" method="post">
                 <h2>Connexion</h2>
                 <label for="email">Adresse mail:</label><br>
@@ -77,12 +79,13 @@ session_start();
             <?php
                 if($error_msg){
                     ?>
-                       <p><?php echo $error_msg; ?></p>
+                       <p class="erreur"><?php echo $error_msg; ?></p>
                     <?php
                 }
             ?>
+            <a class="ins" href="./inscription.php">Inscription</a>
         </div>
-        <a href="./inscription.php">Inscription</a>
+        
     </div>
 </body>
 </html>

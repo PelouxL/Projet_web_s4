@@ -50,13 +50,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_bio']) ){
         <ul>
             <li><img src="<?php echo image_pp($_SESSION['email'],'pp',$pdo); ?>" alt="Image de profile side barre"> <p><?php echo image_pp($_SESSION['email'],'nom',$pdo); ?></p></li>
             <li><a href="../index.php">Accueil</a></li>
-            <li><a href="profile.php">Profil</a></li>
-            <li><a href="messages.php">Messages</a></li>
-            <li><a href="notifications.php">Notifications</a></li>
-            <li><a href="logout.php">Se déconnecter</a></li>
+            <li><a href="./profile.php">Profil</a></li>
+            <li><a href="./deconnexion.php">Se déconnecter</a></li>
         </ul>
    </div>
    <div class="container" style="background-image: url('<?php echo image_pp($_SESSION['email'], 'bannier', $pdo); ?>');">
+   
       <div class="profile">
          <img src="<?php echo image_pp($_SESSION['email'], 'pp',$pdo); ?>" alt="Image de profile">
       </div>
@@ -76,7 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_bio']) ){
 
    <div class="side_gauche">
       <div class="titre">
-        <a href="php/demande.php">Demandes</a>
+        <a href="demande.php">Demandes</a>
         <p><?php echo "Nombre d'ami(e)s actuel : " . nbAmi($pdo) . ".";?></p>
       </div>
         <?php affiche_ami($pdo,'profile_user.php','discussion.php'); ?>
@@ -106,7 +105,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_bio']) ){
       </div>
       <div class="panel" id="post">
          <h2> Vos posts </h2>
-         <?php affiche_publi($pdo); ?>
+         <?php affiche_publi($pdo,$_SESSION['id']); ?>
       </div>
    </div>
 

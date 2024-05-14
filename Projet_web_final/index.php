@@ -60,11 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['contenu'])) {
             <img src="../images/logo.png" alt="logo site" class="logo">
         </div>
         <ul>
-            <li><img src="<?php echo image_pp($_SESSION['email'],'pp',$pdo); ?>" alt="Image de profile side barre"> <p><?php echo image_pp($_SESSION['email'],'nom',$pdo); ?></p></li>
+            <li><img src="<?php echo image_pp($_SESSION['email'],'pp',$pdo); ?>" alt="Image de profile side barre"> <p class="title"><?php echo image_pp($_SESSION['email'],'nom',$pdo); ?></p></li>
             <li><a href="index.php">Accueil</a></li>
             <li><a href="php/profile.php">Profil</a></li>
-            <li><a href="php/messages.php">Messages</a></li>
-            <li><a href="php/notifications.php">Notifications</a></li>
             <li><a href="php/deconnexion.php">Se déconnecter</a></li>
         </ul>
    </div>
@@ -90,5 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['contenu'])) {
       affiche_flu($pdo);
       $pdo = null;
     ?>
+    <footer>
+    <a href="mention_legale.html">
+    </footer>
 </body> 
+
 </html>

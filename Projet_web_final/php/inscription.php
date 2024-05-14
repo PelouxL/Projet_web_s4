@@ -4,11 +4,12 @@ session_start();
 function afficheFormulaire($p){ 
     ?>
     <form method="post">
-        <label>Pseudo <input type="text" name="username" value="<?php echo $p; ?>" required="required" maxlength="20"></label><br>
-        <label>Adresse email <input type="email" name="email" required="required" ></label><br>
+        <label>Pseudo : <input type="text" name="username" value="<?php echo $p; ?>" required="required" maxlength="20"></label><br>
+        <label>Adresse email: <input type="email" name="email" required="required" ></label><br>
         <label>Age : <input type="number" name='age' required="required" min="15" max="130"></label><br>
         <label>Mot de passe :<input type="password" name="mdp" required="required" maxlength="70"></label><br>
-        <button type="submit" name="submit_ins">Submit</button>
+        <a href="./connexion.php">Connexion</a>
+        <button type="submit" name="submit_ins">Inscription</button>
     </form>
 
 
@@ -73,10 +74,18 @@ if(isset($_POST['submit_ins'])){
     <head>
         <meta charset="UTF-8"/>
         <title>Document</title>
+        <link href="../css/style_ins.css" rel="stylesheet" media="all" type="text/css"/>
     </head>
     <body>
-        <?php
-        afficheFormulaire($p);
-         ?>
+        <div class="container">
+            <
+            <img src="../images/logo.png">
+            <div class="formu">
+                <h1>PurplWave</h1>
+                <?php
+                afficheFormulaire($p);
+                ?>
+            </div>
+        </div>
     </body>
 </html>

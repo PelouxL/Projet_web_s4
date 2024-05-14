@@ -59,7 +59,6 @@ include('fonction.php');
             <li><img src="<?php echo image_pp($_SESSION['email'],'pp',$pdo); ?>" alt="Image de profile side barre"> <p><?php echo image_pp($_SESSION['email'],'nom',$pdo); ?></p></li>
             <li><a href="../index.php">Accueil</a></li>
             <li><a href="profile.php">Profil</a></li>
-            <li><a href="notifications.php">Notifications</a></li>
             <li><a href="deconnexion.php">Se déconnecter</a></li>
         </ul>
     </div>
