@@ -215,9 +215,8 @@ img{
     max-width: 80%;
     margin: 20px auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    border: 1px solid #0e2741;
+    background-color: #0056b3;
 }
 
 .envoie_message textarea {
@@ -251,7 +250,7 @@ img{
 }
 
 .mess{
-    max-height: 600px; /* Ajustez à la hauteur désirée */
+    max-height: 600px; 
     overflow: scroll;
     overflow-x: hidden;
     flex-direction: column-reverse;
@@ -259,24 +258,27 @@ img{
 
 
 .sidebar p{
-    display: block; /* Rend les liens en blocs */
-    color: white; /* Couleur du texte des liens */
-    padding: 10px 0; /* Ajuste l'espacement vertical autour du texte des liens */
-    font-size: 18px; /* Agrandit la taille du texte des liens */
+    display: block; 
+    color: white; 
+    padding: 10px 0; 
+    font-size: 18px; 
 }
 
 .user1 {
-    text-align: left; /* Aligner les textes à gauche pour user1 */
-    background-color: #e7f3fe; /* Couleur de fond pour user1 */
-    margin-right: 50%; /* Espace à droite pour user1 */
+    text-align: left; 
+    background-color: #008cff; 
+    margin-right: 50%; 
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2); 
 }
 
+.rep{
+    text-align: left;
+}
 .user2 {
     text-align: right; /* Aligner les textes à droite pour user2 */
-    background-color: #fde4e1; /* Couleur de fond pour user2 */
+    background-color: #066fd1; /* Couleur de fond pour user2 */
     margin-left: 50%; /* Espace à gauche pour user2 */
     padding: 10px;
     border-radius: 10px;
@@ -285,10 +287,11 @@ img{
 
 .user1 p, .user2 p {
     margin: 0; /* Retirer la marge par défaut des paragraphes */
+    color: rgb(216, 213, 213);
 }
 
 /* Pour les dates de publication */
 .user1 p:last-child, .user2 p:last-child {
     font-size: 0.8em; /* Réduire la taille de la police pour les dates */
-    color: #666; /* Couleur grise pour les dates */
+    color: white; /* Couleur grise pour les dates */
 }

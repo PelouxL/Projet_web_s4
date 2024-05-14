@@ -51,6 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['contenu'])) {
         <form class="recherche_compte" action="php/recherche.php" method="get">
             <input type="text" id="pseudo" name="pseudo" placeholder="Recherche un nom de compte">
         </form>
+        <form class="recherche_genre" action="php/recherche.php" method="get">
+            <input type="text" id="type" name="genre" placeholder="Recherche un genre">
+        </form>
     </header>
     <div class="sidebar">
         <div class="top">
@@ -62,15 +65,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['contenu'])) {
             <li><a href="php/profile.php">Profil</a></li>
             <li><a href="php/messages.php">Messages</a></li>
             <li><a href="php/notifications.php">Notifications</a></li>
-            <li><a href="php/logout.php">Se déconnecter</a></li>
+            <li><a href="php/deconnexion.php">Se déconnecter</a></li>
         </ul>
    </div>
+
     <div class="side_gauche">
         <a href="php/demande.php">Demandes</a>
         <?php
         affiche_ami($pdo,'php/profile_user.php','php/discussion.php');
         ?>
     </div>
+
     <div class="content">
         
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">

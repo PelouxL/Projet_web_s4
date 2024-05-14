@@ -38,7 +38,7 @@
             <li><a href="../index.php">Accueil</a></li>
             <li><a href="profile.php">Profil</a></li>
             <li><a href="notifications.php">Notifications</a></li>
-            <li><a href="logout.php">Se déconnecter</a></li>
+            <li><a href="deconnexion.php">Se déconnecter</a></li>
         </ul>
     </div>
     <div class="side_gauche">

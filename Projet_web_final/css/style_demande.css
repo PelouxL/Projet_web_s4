@@ -113,7 +113,7 @@ img{
     box-shadow: 0 0 8px rgba(0,123,255,.5); /* Ombre portée pour indiquer le focus */
 }
 
-/* CSS pour la sidebar de droite */
+/* ______________________________________________________________________________________________________________________________ */
 .side_gauche {
     position: fixed; /* Fixe la sidebar à une position */
     right: 0; /* Alignement à droite */

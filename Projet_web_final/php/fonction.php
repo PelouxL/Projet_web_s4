@@ -266,14 +266,17 @@ function affiche_message($utilisateur_id1,$utilisateur_id2,$pdo){
   $messages = $stmt->fetchAll();
 
   foreach ($messages as $message) {
+    $nom = retNom($message['utilisateur_id1'],$pdo);
       if($message['utilisateur_id1'] == $utilisateur_id1){
           echo "<div class='user1'>";
+            echo "<p>" . htmlspecialchars($nom) . " :</p>";
               echo "<p>" . htmlspecialchars($message['contenu']) . "</p>";
               echo "<p>Envoyé le: " . $message['date_publication'] . "</p>";
           echo "</div>";
       }else{
           echo "<div class='user2'>";
-              echo "<p>" . htmlspecialchars($message['contenu']) . "</p>";
+              echo "<p>:" . htmlspecialchars($nom) . "</p>";
+              echo "<p class='rep'>" . htmlspecialchars($message['contenu']) . "</p>";
               echo "<p>Envoyé le: " . $message['date_publication'] . "</p>";
           echo "</div>"; 
       }
@@ -311,5 +314,102 @@ function affiche_publi($pdo){
   echo"</div>";
 }
 
+function afficher_user($pdo){
+  $stmt = $pdo->prepare('SELECT * FROM Utilisateurs WHERE id > 1');
+  $stmt->execute();
+  $users = $stmt->fetchAll();
+
+  echo "<table class='tabl'>";
+  echo "<tr>";
+  echo "<th>id</th>"; // Correction ici, utilisez <th> au lieu de <td>
+  echo "<th>nom</th>"; // Correction ici, utilisez <th> au lieu de <td>
+  echo "<th>email</th>"; // Correction ici, utilisez <th> au lieu de <td>
+  echo "<th>choix</th>"; // Correction ici, utilisez <th> au lieu de <td>
+  echo "</tr>";
+  
+  foreach($users as $user){
+    echo "<tr>";  
+    echo "<td>" . htmlspecialchars($user['id']) . "</td>";
+    echo "<td>" . htmlspecialchars($user['nom']) . "</td>";
+    echo "<td>" . htmlspecialchars($user['email']) . "</td>";
+    echo "<td>
+            <form class='ban' action='" . htmlspecialchars($_SERVER['PHP_SELF']) . "' method='post'>
+                <input type='hidden' name='id' value='" . htmlspecialchars($user['id']) . "'>
+                <button type='submit'>Bannir</button>
+            </form>
+          </td>";
+    echo "</tr>"; 
+}
+  echo "</table>";
+  $stmt->closeCursor();
+}
+
+
+function suppr_user($id, $pdo) {
+  try {
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $stmt = $pdo->prepare("DELETE FROM Utilisateurs WHERE id = :id");
+      $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+      $stmt->execute();
+
+      if ($stmt->rowCount() > 0) {
+          echo "L'utilisateur d'id " . htmlspecialchars($id) . " a été supprimé avec succès.";
+      } else {
+          echo "Aucun utilisateur trouvé avec l'id " . htmlspecialchars($id) . ".";
+      }
+  } catch (PDOException $e) {
+      echo "Erreur lors de la suppression : " . $e->getMessage();
+  }
+}
+
+
+function recherche_compte($pseudo,$pdo){
+
+  $stmt = $pdo->prepare("SELECT id,nom,token FROM Utilisateurs WHERE nom = :pseudo");
+  $stmt->bindparam(':pseudo',$pseudo);
+  $stmt->execute();
+  $existe = $stmt->fetchALL();
+
+  if ($existe) {
+      foreach ($existe as $utilisateur) {
+          echo "<form action='profile_user.php' method='post'>";
+          echo "<input type='hidden' name='id' value='" . htmlspecialchars($utilisateur['id']) . "'>";
+          echo "<button type='submit' name='nom' value='" . htmlspecialchars($utilisateur['nom']) . "'>" . htmlspecialchars($utilisateur['nom']) . "</button><br>";
+          echo "</form>";
+      }
+  } else {
+      echo "<p>Ce compte n'existe pas.</p>";
+  }
+}
+
+function affiche_pub_genre($genre,$pdo){
+  $stmt = $pdo->prepare('SELECT * FROM Publications WHERE genre = :genre_pub ORDER BY id DESC');
+  $stmt->bindParam(':genre_pub',$genre);
+  $stmt->execute();
+  $publications = $stmt->fetchAll();
+  echo"<div class='publications'>";
+  if($publications){
+    foreach ($publications as $publication) {
+    echo "<section class='publication'>";
+    if($publication['utilisateur_id'] == $_SESSION['id']){
+        echo"<p><a href='profile.php'>" . htmlspecialchars($_SESSION['username']) . "</a></p>";
+    }else{
+        $nom = retNom($publication['utilisateur_id'],$pdo);
+        echo "<form action='profile_user.php' method='post'>";
+          echo "<input type='hidden' name='id' value='" . htmlspecialchars($publication['utilisateur_id']) . "'>";
+          echo "<button type='submit' name='nom' value='" . htmlspecialchars($nom) . "'>" . htmlspecialchars($nom) . "</button><br>";
+        echo "</form>";
+    }
+    echo "<p> " . htmlspecialchars($publication['contenu']) . "</p>";
+    echo "<p><strong>Genre:</strong> " . htmlspecialchars($publication['genre']) . "</p>";
+    echo "<p>" . htmlspecialchars($publication['date_publication']) . "</p>";
+    echo "</section>";
+    }
+  }else{
+    echo"<p>il n'y a aucune publication de ce genre</p>";
+  }
+  $stmt->closeCursor();
+  echo"</div>";
+}
 
 ?>

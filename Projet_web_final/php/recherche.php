@@ -1,23 +1,29 @@
 <?php
     include("../connex.inc.php");
     $pdo = connexion('../bdd/database.sqlite');
+    include("fonction.php");
+    
 
-    $pseudo = $_GET['pseudo'];
 
-    $stmt = $pdo->prepare("SELECT id,nom,token FROM Utilisateurs WHERE nom = :pseudo");
-    $stmt->bindparam(':pseudo',$pseudo);
-    $stmt->execute();
-    $existe = $stmt->fetchALL();
-
-    if ($existe) {
-        foreach ($existe as $utilisateur) {
-            echo "<form action='profile_user.php' method='post'>";
-            echo "<input type='hidden' name='id' value='" . htmlspecialchars($utilisateur['id']) . "'>";
-            echo "<button type='submit' name='nom' value='" . htmlspecialchars($utilisateur['nom']) . "'>" . htmlspecialchars($utilisateur['nom']) . "</button><br>";
-            echo "</form>";
-        }
-    } else {
-        echo "Ce compte n'existe pas.";
-    }
 ?>
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../css/style_recherche.css" rel="stylesheet">
+</head>
+<body>
+    <?php
+    if(isset($_GET['pseudo'])){
+        $pseudo = $_GET['pseudo'];
+        recherche_compte($pseudo,$pdo);
+    }elseif(isset($_GET['genre'])){
+        $genre = $_GET['genre'];
+        affiche_pub_genre($genre,$pdo);
+    }
+    ?>
+</body>
+</html>

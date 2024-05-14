@@ -13,8 +13,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px; /* Hauteur de votre en-tête */
-    border-bottom: 1px solid #391f5f; /* Bordure en bas de l'en-tête avec une couleur contrastante */
+    height: 100px; 
+    border-bottom: 1px solid #391f5f; 
 }
 
 
@@ -32,70 +32,64 @@ header {
 box-shadow: -2px 0 5px rgba(0,0,0,0.5);
 }
 
-/* CSS pour le contenu principal */
 .content {
     padding-top: 20px ;
     padding-bottom: 20px ;
-    margin-left: 300px; /* Décale le contenu pour ne pas qu'il soit sous la sidebar */
+    margin-left: 300px; 
     margin-right: 300px;
-    background-color: #5A3198; /* Couleur de fond légère pour le contenu */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre portée légère */
+    background-color: #5A3198; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
-/* Style pour le formulaire */
 .content form {
-    display: flex; /* Utilise Flexbox pour organiser les éléments du formulaire */
-    flex-direction: column; /* Organise les éléments en colonne */
-    gap: 15px; /* Espacement entre les éléments du formulaire */
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px;
 }
 
-/* Style pour les labels */
 .content label {
     text-align: center;
-    font-size: 18px; /* Taille de police pour les labels */
-    color: white; /* Couleur du texte pour les labels */
+    font-size: 18px; 
+    color: white; 
 }
 
-/* Style pour les champs de saisie et textarea */
 .content input[type="text"],
 .content textarea {
-    width: 80%; /* Utilise toute la largeur disponible */
+    width: 80%; 
     margin: 0 auto;
-    padding: 10px; /* Espacement intérieur pour les champs de saisie */
-    border: 1px solid #ccc; /* Bordure légère pour les champs de saisie */
-    border-radius: 5px; /* Bordures arrondies pour les champs de saisie */
-    font-size: 16px; /* Taille de police pour les champs de saisie */
-    font-family: 'Roboto', sans-serif; /* Police Roboto pour les champs de saisie */
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    font-size: 16px; 
+    font-family: 'Roboto', sans-serif; 
 }
 
-/* Style pour le textarea */
 .content textarea {
-    height: 100px; /* Hauteur fixe pour le textarea */
-    resize: vertical; /* Permet de redimensionner verticalement le textarea */
+    height: 100px; 
+    resize: vertical; 
 }
 
-/* Style pour le bouton de soumission */
 .content input[type="submit"] {
     width: 50%;
     margin: 0 auto;
-    padding: 10px 15px; /* Espacement intérieur pour le bouton */
-    background-color: #007bff; /* Couleur de fond pour le bouton */
-    color: white; /* Couleur du texte pour le bouton */
-    border: none; /* Pas de bordure pour le bouton */
-    border-radius: 5px; /* Bordures arrondies pour le bouton */
-    cursor: pointer; /* Change le curseur en main au survol */
-    font-size: 18px; /* Taille de police pour le bouton */
-    transition: background-color 0.3s; /* Transition pour la couleur de fond au survol */
+    padding: 10px 15px;
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 18px; 
+    transition: background-color 0.3s; 
 }
 
-/* Style pour le bouton de soumission au survol */
+
 .content input[type="submit"]:hover {
-    background-color: #0056b3; /* Couleur de fond plus foncée au survol */
+    background-color: #0056b3; 
 }
 .sidebar ul {
-    list-style-type: none; /* Supprime les puces */
-    padding: 0; /* Supprime le padding par défaut */
-    margin: 0; /* Supprime la marge par défaut */
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
 }
 
 .sidebar li {
@@ -103,27 +97,25 @@ box-shadow: -2px 0 5px rgba(0,0,0,0.5);
 line-height: 52px;
 }
 
-/* CSS pour les éléments de liste de la sidebar */
 .sidebar ul li {
-    border-bottom: 1px solid #1a1919; /* Ajoute une bordure en bas */
-    padding: 20px 0; /* Augmente l'espacement autour du texte des liens */
+    border-bottom: 1px solid #1a1919; 
+    padding: 20px 0; 
 }
 
-/* CSS pour le dernier élément de liste pour enlever la bordure en bas */
 .sidebar ul li:last-child {
     border-bottom: none;
 }
 
 .sidebar ul li a {
-    display: block; /* Rend les liens en blocs */
-    color: white; /* Couleur du texte des liens */
-    padding: 10px 0; /* Ajuste l'espacement vertical autour du texte des liens */
-    font-size: 18px; /* Agrandit la taille du texte des liens */
-    text-decoration: none; /* Supprime le soulignement des liens */
+    display: block; 
+    color: white; 
+    padding: 10px 0; 
+    font-size: 18px; 
+    text-decoration: none; 
 }
 
 .sidebar ul li:hover {
-    background-color: #3b1f66; /* Couleur de fond au survol */
+    background-color: #3b1f66;
 }
 .sidebar img{
     border-radius: 50%;
@@ -135,96 +127,114 @@ line-height: 52px;
 .top {
     margin-top: 10px;
     margin-bottom: 10px ;
-    text-align: center; /* Centre le contenu horizontalement */
+    text-align: center; 
 }
 
 .logo {
-    display: inline-block; /* Permet à l'image d'être centrée comme du texte */
+    display: inline-block; 
     width: 40%;
 }
 
 img{
-    display: inline-block; /* Permet à l'image d'être centrée comme du texte */
-    vertical-align: middle; /* Alignement vertical si nécessaire */
-    max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur de la div */
+    display: inline-block; 
+    vertical-align: middle; 
+    max-width: 100%; 
     height: auto;
 }
 
 /* Style pour le formulaire de recherche */
 .recherche_compte {
-    display: flex; /* Utilise Flexbox pour le positionnement du formulaire */
-    justify-content: center; /* Centre le formulaire horizontalement */
-    align-items: center; /* Centre le formulaire verticalement */
-    width: 100%; /* Utilise toute la largeur disponible dans l'en-tête */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 50%; 
     max-width: 600px;
 }
 
-/* Style pour le champ de saisie */
+.recherche_genre {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    width: 50%; 
+    max-width: 600px;
+}
+
 .recherche_compte input[type="text"] {
     width: 90%;
-    border: 1px solid #ccc; /* Bordure grise pour le champ de saisie */
-    padding: 8px 15px; /* Espacement intérieur pour le champ de saisie */
-    font-size: 16px; /* Taille de police pour le texte entré */
-    border-radius: 20px; /* Bordures arrondies pour le champ de saisie */
-    outline: none; /* Supprime le contour lors de la sélection */
+    border: 1px solid #ccc; 
+    padding: 8px 15px; 
+    font-size: 16px; 
+    border-radius: 20px; 
+    outline: none; /
 }
 
-/* Style pour le label */
+.recherche_genre input[type="text"] {
+    width: 90%;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    font-size: 16px;
+    border-radius: 20px;
+    outline: none;
+}
+
 .recherche_compte label {
-    margin-right: 10px; /* Espacement à droite du label */
-    font-size: 16px; /* Taille de police pour le label */
+    margin-right: 10px;
+    font-size: 16px;
 }
 
-/* Style pour le champ de saisie lorsqu'il est actif */
+.recherche_genre label {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
 .recherche_compte input[type="text"]:focus {
-    border-color: #007bff; /* Couleur de bordure lors de la sélection */
-    box-shadow: 0 0 8px rgba(0,123,255,.5); /* Ombre portée pour indiquer le focus */
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0,123,255,.5);
 }
 
-/* CSS pour la sidebar de droite */
+.recherche_genre input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0,123,255,.5);
+}
+
 .side_gauche {
-    position: fixed; /* Fixe la sidebar à une position */
-    right: 0; /* Alignement à droite */
-    top: 0; /* Alignement en haut */
-    width: 300px; /* Largeur de la sidebar */
-    height: 100%; /* Hauteur de la sidebar */
-    background-color: #5A3198; /* Couleur de fond de la sidebar */
-    overflow-x: hidden; /* Cache le défilement horizontal */
-    overflow-y: auto; /* Permet le défilement vertical si nécessaire */
-    box-shadow: -2px 0 5px rgba(0,0,0,0.5); /* Ombre pour un effet 3D à gauche */
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #5A3198;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
 }
 
-/* CSS pour ajuster le contenu principal en fonction de la sidebar */
 .content {
-    margin-right: 300px; /* D aécale le contenu pour ne pas qu'il soit sous la sidebar */
-    /* Autres styles pour le contenu */
+    margin-right: 300px;
 }
 
-/* CSS pour les liens dans la sidebar */
 .side_gauche a {
     text-align: center;
     border-bottom: 5px #391e61;
-    display: block; /* Rend les liens en blocs */
-    color: white; /* Couleur du texte des liens */
-    padding: 10px; /* Espacement autour du texte des liens */
-    text-decoration: none; /* Supprime le soulignement des liens */
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
 }
 
 .side_gauche a:hover {
-    background-color: #391e61; /* Couleur de fond au survol */
+    background-color: #391e61;
 }
 
-/* CSS pour le premier lien dans la sidebar, qui est le lien vers les demandes */
 .side_gauche a:first-child {
-    border-bottom: 2px solid #391e61; /* Ajoute une bordure en bas pour séparer des autres liens */
-    padding-bottom: 15px; /* Ajuste l'espacement en bas pour intégrer la bordure */
+    border-bottom: 2px solid #391e61;
+    padding-bottom: 15px;
 }
 
-/* CSS pour les autres liens dans la sidebar */
 .side_gauche a:not(:first-child) {
-    border-top: 1px solid #391e61; /* Ajoute une bordure en haut pour séparer des autres liens */
-    margin-top: 10px; /* Espacement en haut pour séparer du lien précédent */
-    padding-top: 15px; /* Ajuste l'espacement en haut pour intégrer la bordure */
+    border-top: 1px solid #391e61;
+    margin-top: 10px;
+    padding-top: 15px;
 }
 
 .publications{
@@ -232,103 +242,94 @@ img{
     margin-right: 300px;
 }
 
-/* Style pour chaque 'publication' */
 .publication {
-    background-color: #46247a ; /* Couleur de fond blanche pour une apparence épurée */
-    border: 1px solid #391e61 ; /* Bordure légère pour délimiter les publications */
-    padding: 20px; /* Espacement intérieur pour le contenu de la publication */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre portée subtile pour un effet de profondeur */
-    transition: box-shadow 0.3s ease-in-out; /* Transition pour l'ombre portée au survol */
+    background-color: #46247a;
+    border: 1px solid #391e61;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .publication:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Ombre portée plus prononcée au survol */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Style pour les titres et métadonnées dans 'publication' */
 .publication p {
-    font-family: 'Roboto', sans-serif; /* Définit Roboto comme la police des paragraphes */
-    color: white; /* Couleur du texte pour un contraste optimal */
-    line-height: 1.5; /* Hauteur de ligne pour une meilleure lisibilité */
-    margin-bottom: 10px; /* Espacement en bas de chaque paragraphe */
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    line-height: 1.5;
+    margin-bottom: 10px;
 }
 
 .publication p strong {
-    color: white; /* Texte en gras pour les titres et métadonnées */
+    color: white;
 }
 
-/* Style pour les boutons et liens */
 .publication a, .publication button {
-    color: #007bff; /* Couleur bleue pour les liens et boutons */
-    text-decoration: none; /* Pas de soulignement pour les liens */
-    font-weight: bold; /* Texte en gras pour attirer l'attention */
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .publication button {
-    background-color: transparent; /* Fond transparent pour les boutons */
-    border: none; /* Pas de bordure pour un look épuré */
-    cursor: pointer; /* Curseur en forme de main au survol */
-    padding: 5px; /* Espacement intérieur léger pour les boutons */
-    transition: color 0.3s ease-in-out; /* Transition pour la couleur du texte au survol */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease-in-out;
 }
 
 .publication button:hover {
-    color: #0056b3; /* Couleur plus foncée au survol pour les boutons */
+    color: #0056b3;
 }
-
 
 .amis {
     text-align: center;
     color: white;
 }
 
-/* Style pour la section 'ami' */
 .ami {
-    display: flex; /* Utilise Flexbox pour aligner les éléments côte à côte */
-    justify-content: space-around; /* Répartit l'espace autour des éléments */
-    align-items: center; /* Centre les éléments verticalement */
-    border-bottom: 2px solid #391e61; /* Bordure pour délimiter la section */
-    padding: 20px; /* Espacement intérieur pour le contenu de la section */
-    margin-bottom: 20px; /* Espacement en bas de chaque section */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid #391e61;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-
-/* Style pour les formulaires dans la section 'ami' */
 .ami form {
-    margin: 0; /* Aucun espacement entre les formulaires */
-    flex-basis: 48%; /* Chaque formulaire prend environ la moitié de l'espace disponible */
+    margin: 0;
+    flex-basis: 48%;
 }
 
-/* Style pour les boutons dans la section 'ami' */
 .ami button {
     width: 100%;
-    background-color: #007bff; /* Couleur de fond pour les boutons */
-    color: white; /* Couleur du texte pour les boutons */
-    border: none; /* Pas de bordure pour les boutons */
-    border-radius: 4px; /* Bordures arrondies pour les boutons */
-    padding: 10px 15px; /* Espacement intérieur pour les boutons */
-    cursor: pointer; /* Change le curseur en main au survol */
-    font-size: 16px; /* Taille de police pour les boutons */
-    transition: background-color 0.3s; /* Transition pour la couleur de fond au survol */
-    margin: 5px; /* Espacement autour des boutons */
-    display: inline-block; /* Assure que les boutons ne prennent pas toute la largeur */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin: 5px;
+    display: inline-block;
 }
 
-/* Style pour les boutons au survol dans la section 'ami' */
 .ami button:hover {
-    background-color: #0056b3; /* Couleur de fond plus foncée au survol */
+    background-color: #0056b3;
 }
 
 .sidebar img{
     border-radius: 50%;
-width:100px;
-height: 100px;
-object-fit: cover;
+    width:100px;
+    height: 100px;
+    object-fit: cover;
 }
 
 .sidebar p{
-    display: block; /* Rend les liens en blocs */
-    color: white; /* Couleur du texte des liens */
-    padding: 10px 0; /* Ajuste l'espacement vertical autour du texte des liens */
-    font-size: 18px; /* Agrandit la taille du texte des liens */
+    display: block;
+    color: white;
+    padding: 10px 0;
+    font-size: 18px;
 }
