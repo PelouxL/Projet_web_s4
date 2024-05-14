@@ -1,0 +1,250 @@
+body{
+	background-color:#46247a ;
+	margin:0;
+}
+
+header {
+    margin-left: 300px;
+    margin-right: 300px;
+    background-color: #5A3198;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Hauteur de votre en-tête */
+    border-bottom: 1px solid #391f5f; /* Bordure en bas de l'en-tête avec une couleur contrastante */
+}
+
+
+
+/* CSS pour la sidebar */
+.sidebar {
+    
+    position: fixed; /* Fixe la sidebar à une position */
+    left: 0; /* Alignement à gauche */
+    top: 0; /* Alignement en haut */
+    width: 300px; /* Largeur de la sidebar */
+    height: 100%; /* Hauteur de la sidebar */
+    background-color:#5A3198 ; /* Couleur de fond de la sidebar */
+    overflow-x: hidden; /* Cache le défilement horizontal */
+    overflow-y: auto; /* Permet le défilement vertical si nécessaire */
+    box-shadow: 1px 0 1px rgba(0,0,0,0.5); /* Ombre pour un effet 3D */
+}
+/* CSS pour les liens de la sidebar */
+.sidebar ul {
+    list-style-type: none; /* Supprime les puces */
+    padding: 0; /* Supprime le padding par défaut */
+    margin: 0; /* Supprime la marge par défaut */
+}
+
+.sidebar li {
+    text-align: center;
+}
+
+/* CSS pour les éléments de liste de la sidebar */
+.sidebar ul li {
+    border-bottom: 1px solid #444; /* Ajoute une bordure en bas */
+    padding: 20px 0; /* Augmente l'espacement autour du texte des liens */
+}
+
+/* CSS pour le dernier élément de liste pour enlever la bordure en bas */
+.sidebar ul li:last-child {
+    border-bottom: none;
+}
+
+.sidebar ul li a {
+    display: block; /* Rend les liens en blocs */
+    color: white; /* Couleur du texte des liens */
+    padding: 10px 0; /* Ajuste l'espacement vertical autour du texte des liens */
+    font-size: 18px; /* Agrandit la taille du texte des liens */
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+.sidebar ul li:hover {
+    background-color: #3b1f66; /* Couleur de fond au survol */
+}
+
+.top {
+    margin-top: 10px;
+    margin-bottom: 10px ;
+    text-align: center; /* Centre le contenu horizontalement */
+}
+
+.logo {
+    display: inline-block; /* Permet à l'image d'être centrée comme du texte */
+    width: 40%;
+}
+
+img{
+    display: inline-block; /* Permet à l'image d'être centrée comme du texte */
+    vertical-align: middle; /* Alignement vertical si nécessaire */
+    max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur de la div */
+    height: auto;
+}
+
+
+/* Style pour le formulaire de recherche */
+.recherche_compte {
+    display: flex; /* Utilise Flexbox pour le positionnement du formulaire */
+    justify-content: center; /* Centre le formulaire horizontalement */
+    align-items: center; /* Centre le formulaire verticalement */
+    width: 100%; /* Utilise toute la largeur disponible dans l'en-tête */
+    max-width: 600px;
+}
+
+/* Style pour le champ de saisie */
+.recherche_compte input[type="text"] {
+    width: 90%;
+    border: 1px solid #ccc; /* Bordure grise pour le champ de saisie */
+    padding: 8px 15px; /* Espacement intérieur pour le champ de saisie */
+    font-size: 16px; /* Taille de police pour le texte entré */
+    border-radius: 20px; /* Bordures arrondies pour le champ de saisie */
+    outline: none; /* Supprime le contour lors de la sélection */
+}
+
+/* Style pour le label */
+.recherche_compte label {
+    margin-right: 10px; /* Espacement à droite du label */
+    font-size: 16px; /* Taille de police pour le label */
+}
+
+/* Style pour le champ de saisie lorsqu'il est actif */
+.recherche_compte input[type="text"]:focus {
+    border-color: #007bff; /* Couleur de bordure lors de la sélection */
+    box-shadow: 0 0 8px rgba(0,123,255,.5); /* Ombre portée pour indiquer le focus */
+}
+
+/* CSS pour la sidebar de droite */
+.side_gauche {
+    position: fixed; /* Fixe la sidebar à une position */
+    right: 0; /* Alignement à droite */
+    top: 0; /* Alignement en haut */
+    width: 300px; /* Largeur de la sidebar */
+    height: 100%; /* Hauteur de la sidebar */
+    background-color: #5A3198; /* Couleur de fond de la sidebar */
+    overflow-x: hidden; /* Cache le défilement horizontal */
+    overflow-y: auto; /* Permet le défilement vertical si nécessaire */
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5); /* Ombre pour un effet 3D à gauche */
+}
+
+/* CSS pour les liens dans la sidebar */
+.side_gauche a {
+    text-align: center;
+    border-bottom: 5px #391e61;
+    display: block; /* Rend les liens en blocs */
+    color: white; /* Couleur du texte des liens */
+    padding: 10px; /* Espacement autour du texte des liens */
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+.side_gauche a:hover {
+    background-color: #391e61; /* Couleur de fond au survol */
+}
+
+/* CSS pour le premier lien dans la sidebar, qui est le lien vers les demandes */
+.side_gauche a:first-child {
+    border-bottom: 2px solid #391e61; /* Ajoute une bordure en bas pour séparer des autres liens */
+    padding-bottom: 15px; /* Ajuste l'espacement en bas pour intégrer la bordure */
+}
+
+/* CSS pour les autres liens dans la sidebar */
+.side_gauche a:not(:first-child) {
+    border-top: 1px solid #391e61; /* Ajoute une bordure en haut pour séparer des autres liens */
+    margin-top: 10px; /* Espacement en haut pour séparer du lien précédent */
+    padding-top: 15px; /* Ajuste l'espacement en haut pour intégrer la bordure */
+}
+
+.amis {
+    text-align: center;
+    color: white;
+}
+
+/* Style pour la section 'ami' */
+.ami {
+    display: flex; /* Utilise Flexbox pour aligner les éléments côte à côte */
+    justify-content: space-around; /* Répartit l'espace autour des éléments */
+    align-items: center; /* Centre les éléments verticalement */
+    border-bottom: 2px solid #391e61; /* Bordure pour délimiter la section */
+    padding: 20px; /* Espacement intérieur pour le contenu de la section */
+    margin-bottom: 20px; /* Espacement en bas de chaque section */
+}
+
+
+/* Style pour les formulaires dans la section 'ami' */
+.ami form {
+    margin: 0; /* Aucun espacement entre les formulaires */
+    flex-basis: 48%; /* Chaque formulaire prend environ la moitié de l'espace disponible */
+}
+
+/* Style pour les boutons dans la section 'ami' */
+.ami button {
+    width: 100%;
+    background-color: #007bff; /* Couleur de fond pour les boutons */
+    color: white; /* Couleur du texte pour les boutons */
+    border: none; /* Pas de bordure pour les boutons */
+    border-radius: 4px; /* Bordures arrondies pour les boutons */
+    padding: 10px 15px; /* Espacement intérieur pour les boutons */
+    cursor: pointer; /* Change le curseur en main au survol */
+    font-size: 16px; /* Taille de police pour les boutons */
+    transition: background-color 0.3s; /* Transition pour la couleur de fond au survol */
+    margin: 5px; /* Espacement autour des boutons */
+    display: inline-block; /* Assure que les boutons ne prennent pas toute la largeur */
+}
+
+/* Style pour les boutons au survol dans la section 'ami' */
+.ami button:hover {
+    background-color: #0056b3; /* Couleur de fond plus foncée au survol */
+}
+
+/* Style pour le conteneur de chaque demande */
+.demande {
+    background-color: #502b88; /* Couleur de fond pour la demande */
+    border-bottom: 1px solid #2d184d; /* Bordure pour délimiter la demande */
+    padding: 15px; /* Espacement intérieur */
+    margin-bottom: 15px; /* Espacement entre chaque demande */
+    margin-left: 300px;
+    margin-right: 300px;
+    display: flex; /* Utilisation de Flexbox pour aligner les éléments */
+    justify-content: space-between; /* Espacement entre les éléments */
+    align-items: center; /* Alignement vertical des éléments */
+}
+
+/* Style pour les boutons dans chaque demande */
+.demande button {
+    padding: 10px 20px; /* Espacement intérieur pour les boutons */
+    margin-left: 10px;
+    margin-right: 10px;
+    border: none; /* Aucune bordure pour les boutons */
+    border-radius: 4px; /* Bordures arrondies pour les boutons */
+    cursor: pointer; /* Curseur en forme de main au survol */
+    font-size: 16px; /* Taille de police pour les boutons */
+    transition: background-color 0.3s; /* Transition pour la couleur de fond au survol */
+}
+
+/* Style pour le bouton 'Accepter' */
+.demande button[name='choix'][value='accepter'] {
+    background-color: #28a745; /* Couleur de fond pour le bouton 'Accepter' */
+    color: white; /* Couleur du texte pour le bouton 'Accepter' */
+}
+
+/* Style pour le bouton 'Refuser' */
+.demande button[name='choix'][value='refuser'] {
+    background-color: #dc3545; /* Couleur de fond pour le bouton 'Refuser' */
+    color: white; /* Couleur du texte pour le bouton 'Refuser' */
+}
+
+/* Style pour les boutons au survol */
+.demande button:hover {
+    opacity: 0.8; /* Légère transparence au survol pour un effet visuel */
+}
+
+.sidebar img{
+    border-radius: 50%;
+    max-width: 30%;
+}
+
+.sidebar p{
+    display: block; /* Rend les liens en blocs */
+    color: white; /* Couleur du texte des liens */
+    padding: 10px 0; /* Ajuste l'espacement vertical autour du texte des liens */
+    font-size: 18px; /* Agrandit la taille du texte des liens */
+}

@@ -1,0 +1,446 @@
+body {
+	background-color: #4f3c6e;
+	margin:0;
+}
+
+.container{
+	position: relative;
+	margin:auto;
+	top:0;
+	margin-left: 300px;
+	margin-right: 300px;
+	height: 80%;
+	border-radius: 5px;
+	overflow: hidden;
+	border: 1px solid black;
+	background-size: cover; /* Ajuste la taille de l'image pour couvrir entièrement la div */
+    background-position: center; /* Centre l'image horizontalement et verticalement */
+    background-repeat: no-repeat;
+}
+
+
+.nonunderline {
+  text-decoration:none;
+  color: #5c5e6e;
+  
+}
+
+.info{
+	position:absolute;
+	top:60%;
+	width:100%;
+	height: 30%;
+	background-color: #5A3198;
+}
+
+.info p{
+	position:relative;
+	top:23%;
+	left:7%;
+	word-wrap: break-word;
+	color:white;
+
+}
+
+.bar{
+	position:absolute;
+	bottom:0;
+	width:100%;
+	height: 10%;
+	background-color: #5A3198;
+}
+
+.name{
+	background-color: #5A3198;
+	font-size:1.5em;
+	color:white;
+}
+.profile{
+	position:absolute;
+	display:flex; 
+	align-items:center;
+	bottom:31%;
+	left:25px;
+	z-index:2;
+}
+
+h2{
+	text-align: center;
+}
+.profile img {
+	width:150px;
+	height: 150px;
+	border-radius:50%;
+	border: 3px solid #5A3198;
+	object-fit: cover;
+}
+
+.container ul {
+	position: relative;
+	width: 100%;
+	display:flex;
+	height: 0%;
+	bottom: 0;
+}
+
+.container li{
+	list-style:none;
+	cursor:pointer;
+	font-size: 1.1em;
+	padding: 1.5em 7.5em;
+}
+
+.container li:hover, .active {
+	color:white;
+	border-bottom: 3px solid #1488fa;
+}
+
+
+/* ---------------------- side bar --------------------------- */
+
+.top {
+    margin-top: 10px;
+    margin-bottom: 10px ;
+    text-align: center; /* Centre le contenu horizontalement */
+}
+
+.logo {
+    display: inline-block; /* Permet à l'image d'être centrée comme du texte */
+    width: 40%;
+}
+
+img{
+    display: inline-block; /* Permet à l'image d'être centrée comme du texte */
+    vertical-align: middle; /* Alignement vertical si nécessaire */
+    max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur de la div */
+    height: auto;
+}
+
+.sidebar {
+
+    position: fixed; 
+    left: 0;
+    top: 0; 
+    width: 300px; 
+    height: 100%; 
+    background-color:#5A3198 ; 
+    overflow-x: hidden; 
+    overflow-y: auto; 
+	box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+}
+
+.sidebar ul {
+    list-style-type: none; /* Supprime les puces */
+    padding: 0; /* Supprime le padding par défaut */
+    margin: 0; /* Supprime la marge par défaut */
+}
+
+.sidebar li {
+    text-align: center;
+	line-height: 52px;
+}
+
+/* CSS pour les éléments de liste de la sidebar */
+.sidebar ul li {
+    border-bottom: 1px solid #1a1919; /* Ajoute une bordure en bas */
+    padding: 20px 0; /* Augmente l'espacement autour du texte des liens */
+}
+
+/* CSS pour le dernier élément de liste pour enlever la bordure en bas */
+.sidebar ul li:last-child {
+    border-bottom: none;
+}
+
+.sidebar ul li a {
+    display: block; /* Rend les liens en blocs */
+    color: white; /* Couleur du texte des liens */
+    padding: 10px 0; /* Ajuste l'espacement vertical autour du texte des liens */
+    font-size: 18px; /* Agrandit la taille du texte des liens */
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+.sidebar ul li:hover {
+    background-color: #3b1f66; /* Couleur de fond au survol */
+}
+.sidebar img{
+    border-radius: 50%;
+	width:100px;
+	height: 100px;
+	object-fit: cover;
+}
+
+.sidebar p{
+    display: block; /* Rend les liens en blocs */
+    color: white; /* Couleur du texte des liens */
+    padding: 10px 0; /* Ajuste l'espacement vertical autour du texte des liens */
+    font-size: 18px; /* Agrandit la taille du texte des liens */
+}
+
+
+
+
+
+/* ---------------------- presentation --------------------------- */
+
+#pro.panel {
+	position: relative;
+	height:30%;
+    border-radius: 5px; 
+    margin: 20px auto; 
+}
+
+
+#pro.panel h2 {
+    color: #f7f7f7; 
+    margin-bottom: 10px; 
+}
+
+#pro.panel p {
+    color: #ffffff; 
+    font-size: 14px; 
+}
+
+#pro.panel form {
+    margin-bottom: 20px; 
+}
+
+#pro.panel input[type="file"] {
+    border: 1px solid #ccc; 
+    padding: 5px; 
+    margin-bottom: 10px; 
+}
+
+.bar li{
+	color: white;
+}
+
+#pro.panel input[type="submit"] {
+    background-color: #643ba1; 
+    color: white; 
+    border: none; 
+    padding: 10px 15px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 16px; 
+}
+
+
+#pro.panel input[type="submit"]:hover {
+    background-color: rgb(107, 66, 170); 
+}
+
+.presentation{
+	margin-left:300px;
+	margin-right: 300px;
+	border-radius: 5px;
+	padding-top:10px;
+	padding-bottom: 0.5em;
+	border:1px solid black;
+	background-color: #3b1f66;
+	color:white;
+}
+
+.panel{
+	position:relative;
+	padding-left: 10px;
+	display: none;
+}
+
+.panel.visible{
+	display:initial;
+}
+
+
+
+/*----------------------- Bio ---------------------------- */
+
+#bio {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#bio h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+	color:white;
+}
+
+#bio textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical; /* Permettre le redimensionnement vertical */
+}
+
+#bio input[type="submit"] {
+    background-color: #643ba1; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+/* Style au survol du bouton */
+#bio input[type="submit"]:hover {
+    background-color: rgb(107, 66, 170); /* Couleur de fond du bouton au survol */
+}
+
+
+/*----------------------- Post --------------------------- */
+.publications {
+    display: flex;
+    flex-direction: column;
+}
+
+.publication {
+    background-color: #512f83;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+	margin-left:50px;
+	margin-right: 50px;
+}
+
+.publication p {
+    margin-bottom: 10px;
+	
+}
+
+.publication p:last-child {
+    margin-bottom: 0;
+}
+
+.publication a,
+.publication button {
+	background: none;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.publication a:hover,
+.publication button:hover {
+    background-color: #783b9b; /* Couleur de fond au survol */
+}
+
+.publication form {
+    margin-top: 10px;
+}
+
+.champ{
+	border: 1px solid black;
+	background-color: #643ba1;
+	border-radius:5px;
+	padding: 10px;
+}
+
+#butn{
+	background: none;
+    color: #007bff; /* Couleur du lien */
+    border: none; /* Enlever la bordure */
+    padding: 0; /* Aucun rembourrage */
+    font: inherit; /* Utiliser la police par défaut */
+    cursor: pointer; /* Curseur de la souris indiquant la cliquabilité */
+    
+}
+
+
+
+
+
+
+
+/* ---------------------- Amis --------------------------- */
+
+
+.side_gauche {
+    position: fixed; /* Fixe la sidebar à une position */
+    right: 0; /* Alignement à droite */
+    top: 0; /* Alignement en haut */
+    width: 300px; /* Largeur de la sidebar */
+    height: 100%; /* Hauteur de la sidebar */
+    background-color: #5A3198; /* Couleur de fond de la sidebar */
+    overflow-x: hidden; /* Cache le défilement horizontal */
+    overflow-y: auto; /* Permet le défilement vertical si nécessaire */
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5); /* Ombre pour un effet 3D à gauche */
+}
+
+.side_gauche .titre{
+	text-align: center;
+	border-bottom: 1px solid black ;
+}
+
+.side_gauche a {
+    text-align: center;
+    border-bottom: 5px #391e61;
+    display: block; 
+    color: white; 
+    padding: 10px; 
+    text-decoration: none; 
+}
+
+.side_gauche a:hover {
+    background-color: #391e61; 
+}
+
+
+.side_gauche a:first-child {
+    border-bottom: 2px solid #391e61; /* Ajoute une bordure en bas pour séparer des autres liens */
+    padding-bottom: 15px; /* Ajuste l'espacement en bas pour intégrer la bordure */
+}
+
+/* CSS pour les autres liens dans la sidebar */
+.side_gauche a:not(:first-child) {
+    border-top: 1px solid #391e61; 
+    margin-top: 10px; 
+    padding-top: 15px; 
+}
+
+.amis {
+    text-align: center;
+    color: white;
+}
+
+.ami {
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    border-bottom: 2px solid #391e61; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+}
+
+
+/* Style pour les formulaires dans la section 'ami' */
+.ami form {
+    margin: 0; /* Aucun espacement entre les formulaires */
+    flex-basis: 48%; /* Chaque formulaire prend environ la moitié de l'espace disponible */
+}
+
+/* Style pour les boutons dans la section 'ami' */
+.ami button {
+    width: 100%;
+    background-color: #007bff; /* Couleur de fond pour les boutons */
+    color: white; /* Couleur du texte pour les boutons */
+    border: none; /* Pas de bordure pour les boutons */
+    border-radius: 4px; /* Bordures arrondies pour les boutons */
+    padding: 10px 15px; /* Espacement intérieur pour les boutons */
+    cursor: pointer; /* Change le curseur en main au survol */
+    font-size: 16px; /* Taille de police pour les boutons */
+    transition: background-color 0.3s; /* Transition pour la couleur de fond au survol */
+    margin: 5px; /* Espacement autour des boutons */
+    display: inline-block; /* Assure que les boutons ne prennent pas toute la largeur */
+}
+
+/* Style pour les boutons au survol dans la section 'ami' */
+.ami button:hover {
+    background-color: #0056b3; /* Couleur de fond plus foncée au survol */
+}
